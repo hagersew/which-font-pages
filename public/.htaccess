@@ -1,0 +1,8 @@
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Direct /privacy-policy requests to the exported directory (trailing slash)
+  RewriteRule ^privacy-policy$ /privacy-policy/ [R=301,L]
+</IfModule>
