@@ -1,3 +1,4 @@
+import { ThemeInitScript } from "@/providers/ThemeInitScript";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -38,14 +39,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full scroll-smooth`} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('which-font-theme');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})();`,
-          }}
-        />
-      </head>
       <body className="min-h-full bg-background text-foreground antialiased">
+        <ThemeInitScript />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
