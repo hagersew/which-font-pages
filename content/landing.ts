@@ -10,8 +10,9 @@ export const CHROME_STORE_URL =
   "https://chromewebstore.google.com/detail/which-font/PLACEHOLDER";
 
 export const GITHUB_URL = "#";
+export const HAGERSEW_URL = "https://hagersew.com";
 export const PRIVACY_URL = "/privacy-policy/";
-export const CONTACT_EMAIL = "hello@whichfont.dev";
+export const CONTACT_EMAIL = "hello@whichfont.hagersew.com";
 
 export function goToInstall() {
   window.open(CHROME_STORE_URL, "_blank", "noopener,noreferrer");

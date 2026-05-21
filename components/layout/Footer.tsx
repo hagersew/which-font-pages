@@ -2,11 +2,12 @@ import {
   CHROME_STORE_URL,
   CONTACT_EMAIL,
   GITHUB_URL,
+  HAGERSEW_URL,
   PRIVACY_URL,
 } from "@/content/landing";
 import Image from "next/image";
 import Link from "next/link";
-import { FiGithub, FiTwitter } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 
 const footerLinks = [
   { label: "Chrome Web Store", href: CHROME_STORE_URL },
@@ -34,22 +35,15 @@ export function Footer() {
             <p className="max-w-xs text-sm text-muted">
               Inspect fonts and typography instantly on any website.
             </p>
-            <div className="flex gap-3">
-              <a
-                href={GITHUB_URL}
-                className="rounded-lg p-2 text-muted transition-colors hover:bg-hover hover:text-foreground"
-                aria-label="GitHub"
-              >
-                <FiGithub size={18} />
-              </a>
-              <a
-                href="#"
-                className="rounded-lg p-2 text-muted transition-colors hover:bg-hover hover:text-foreground"
-                aria-label="Twitter"
-              >
-                <FiTwitter size={18} />
-              </a>
-            </div>
+            <a
+              href={HAGERSEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Powered by Hagersew
+              <FiExternalLink size={14} aria-hidden />
+            </a>
           </div>
 
           <nav className="flex flex-wrap gap-x-8 gap-y-3">
