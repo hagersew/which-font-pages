@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.chrome.com/docs/webstore/images",
+  "source": "public/logo.png",
+  "generatedAt": "2026-05-21T22:36:22.326Z",
+  "icons": {
+    "description": "Extension manifest icons (include in extension ZIP). Upload icon-128.png as the store listing icon.",
+    "sizes": [
+      "icons/icon-16.png",
+      "icons/icon-32.png",
+      "icons/icon-48.png",
+      "icons/icon-128.png"
+    ]
+  },
+  "promo": {
+    "description": "Store listing promotional images",
+    "files": [
+      "promo/small-440x280.png",
+      "promo/marquee-1400x560.png"
+    ]
+  },
+  "screenshots": {
+    "description": "Not auto-generated. Capture real UI, then export at these sizes.",
+    "recommended": [
+      "1280x800",
+      "640x400"
+    ]
+  }
+}

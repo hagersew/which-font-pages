@@ -10,7 +10,7 @@ export const CHROME_STORE_URL =
   "https://chromewebstore.google.com/detail/which-font/PLACEHOLDER";
 
 export const GITHUB_URL = "#";
-export const PRIVACY_URL = "#";
+export const PRIVACY_URL = "/privacy-policy";
 export const CONTACT_EMAIL = "hello@whichfont.dev";
 
 export function goToInstall() {
