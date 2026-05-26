@@ -1,19 +1,20 @@
 import {
-  CHROME_STORE_URL,
   CONTACT_EMAIL,
   GITHUB_URL,
   HAGERSEW_URL,
   PRIVACY_URL,
-} from "@/content/landing";
-import Image from "next/image";
-import Link from "next/link";
-import { FiExternalLink } from "react-icons/fi";
+  storeLinks,
+} from '@/content/landing';
+import { StoreBadgeLinks } from '@/components/ui/StoreBadgeLinks';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FiExternalLink } from 'react-icons/fi';
 
 const footerLinks = [
-  { label: "Chrome Web Store", href: CHROME_STORE_URL },
-  { label: "GitHub", href: GITHUB_URL },
-  { label: "Privacy", href: PRIVACY_URL },
-  { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
+  ...storeLinks.map((store) => ({ label: store.label, href: store.href })),
+  { label: 'GitHub', href: GITHUB_URL },
+  { label: 'Privacy', href: PRIVACY_URL },
+  { label: 'Contact', href: `mailto:${CONTACT_EMAIL}` },
 ];
 
 export function Footer() {
@@ -35,6 +36,7 @@ export function Footer() {
             <p className="max-w-xs text-sm text-muted">
               Inspect fonts and typography instantly on any website.
             </p>
+            <StoreBadgeLinks variant="light" size="sm" />
             <a
               href={HAGERSEW_URL}
               target="_blank"
@@ -48,7 +50,7 @@ export function Footer() {
 
           <nav className="flex flex-wrap gap-x-8 gap-y-3">
             {footerLinks.map((link) =>
-              link.href.startsWith("/") ? (
+              link.href.startsWith('/') ? (
                 <Link
                   key={link.label}
                   href={link.href}

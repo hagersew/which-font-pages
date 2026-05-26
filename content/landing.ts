@@ -7,16 +7,42 @@ import {
 } from "react-icons/fi";
 
 export const CHROME_STORE_URL =
-  "https://chromewebstore.google.com/detail/which-font/PLACEHOLDER";
+  "https://chromewebstore.google.com/detail/which-font/bkjnfjfgcpmiifbmlmcfljigdbmkhppl";
+
+export const FIREFOX_ADDONS_URL =
+  "https://addons.mozilla.org/en-US/firefox/addon/whichfont/";
+
+export type StoreLink = {
+  id: "chrome" | "firefox";
+  label: string;
+  href: string;
+  badgeSrc: string;
+  badgeSrcLight?: string;
+  alt: string;
+};
+
+export const storeLinks: StoreLink[] = [
+  {
+    id: "chrome",
+    label: "Chrome Web Store",
+    href: CHROME_STORE_URL,
+    badgeSrc: "/badges/chrome-web-store.svg",
+    badgeSrcLight: "/badges/chrome-web-store-light.svg",
+    alt: "Available in the Chrome Web Store",
+  },
+  {
+    id: "firefox",
+    label: "Firefox Add-ons",
+    href: FIREFOX_ADDONS_URL,
+    badgeSrc: "/badges/firefox-addons.svg",
+    alt: "Get it on Firefox Add-ons",
+  },
+];
 
 export const GITHUB_URL = "#";
 export const HAGERSEW_URL = "https://hagersew.com";
 export const PRIVACY_URL = "/privacy-policy/";
 export const CONTACT_EMAIL = "hello@whichfont.hagersew.com";
-
-export function goToInstall() {
-  window.open(CHROME_STORE_URL, "_blank", "noopener,noreferrer");
-}
 
 export const navLinks = [
   { label: "How it works", href: "#how-it-works" },
@@ -62,7 +88,7 @@ export const howItWorksSteps = [
     id: 1,
     label: "Activate from toolbar",
     description:
-      "Click the Which Font? icon in your Chrome toolbar to enter inspection mode.",
+      "Click the Which Font? icon in your browser toolbar to enter inspection mode.",
   },
   {
     id: 2,

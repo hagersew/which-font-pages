@@ -1,28 +1,27 @@
-"use client";
+'use client';
 
-import { HeroDemo } from "@/components/demo/HeroDemo";
-import { PrimaryButton } from "@/components/ui/PrimaryButton";
-import { goToInstall } from "@/content/landing";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { easeOut } from "@/lib/motion";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { FiChrome } from "react-icons/fi";
+import { HeroDemo } from '@/components/demo/HeroDemo';
+import { PrimaryButton } from '@/components/ui/PrimaryButton';
+import { StoreBadgeLinks } from '@/components/ui/StoreBadgeLinks';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { easeOut } from '@/lib/motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 export function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ['start start', 'end start'],
   });
   const demoY = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 40]);
 
   const items = [
-    { delay: 0, key: "badge" },
-    { delay: 0.1, key: "heading" },
-    { delay: 0.2, key: "text" },
-    { delay: 0.3, key: "cta" },
+    { delay: 0, key: 'badge' },
+    { delay: 0.1, key: 'heading' },
+    { delay: 0.2, key: 'text' },
+    { delay: 0.3, key: 'cta' },
   ];
 
   return (
@@ -39,41 +38,42 @@ export function HeroSection() {
               key={item.key}
               initial={reduced ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: easeOut, delay: reduced ? 0 : item.delay }}
+              transition={{
+                duration: 0.55,
+                ease: easeOut,
+                delay: reduced ? 0 : item.delay,
+              }}
             >
-              {item.key === "badge" && (
+              {item.key === 'badge' && (
                 <div className="inline-flex w-fit items-center gap-2 rounded-full border border-brand-500/30 bg-brand-600/10 px-3 py-1 text-xs font-medium text-brand-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand-400 animate-pulse" />
-                  Chrome extension for typography inspection
+                  Available for Chrome & Firefox
                 </div>
               )}
-              {item.key === "heading" && (
+              {item.key === 'heading' && (
                 <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-                  Identify Any{" "}
-                  <span className="gradient-underline gradient-text">Font</span>{" "}
+                  Identify Any{' '}
+                  <span className="gradient-underline gradient-text">Font</span>{' '}
                   Instantly
                 </h1>
               )}
-              {item.key === "text" && (
+              {item.key === 'text' && (
                 <p className="max-w-xl text-lg leading-relaxed text-muted md:text-xl">
-                  &ldquo;Which Font?&rdquo; helps developers and designers instantly
-                  inspect fonts, typography, and styling information directly from
-                  any webpage.
+                  &ldquo;Which Font?&rdquo; helps developers and designers
+                  instantly inspect fonts, typography, and styling information
+                  directly from any webpage.
                 </p>
               )}
-              {item.key === "cta" && (
-                <div className="flex flex-wrap gap-3">
-                  <PrimaryButton onClick={goToInstall} className="px-6 py-3 text-base">
-                    <FiChrome size={18} />
-                    Add to Chrome
-                  </PrimaryButton>
+              {item.key === 'cta' && (
+                <div className="flex flex-wrap items-center gap-4">
+                  <StoreBadgeLinks variant="light" />
                   <PrimaryButton
                     variant="secondary"
                     className="px-6 py-3 text-base"
                     onClick={() =>
                       document
-                        .getElementById("how-it-works")
-                        ?.scrollIntoView({ behavior: "smooth" })
+                        .getElementById('how-it-works')
+                        ?.scrollIntoView({ behavior: 'smooth' })
                     }
                   >
                     See How It Works

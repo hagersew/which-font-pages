@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://whichfont.dev"),
   title: "Which Font? — Identify Fonts Instantly on Any Website",
   description:
-    "Inspect fonts, typography, colors, and CSS styles instantly with Which Font? — the modern Chrome extension for developers and designers.",
+    "Inspect fonts, typography, colors, and CSS styles instantly with Which Font? — a browser extension for Chrome and Firefox, built for developers and designers.",
   openGraph: {
     title: "Which Font? — Identify Fonts Instantly on Any Website",
     description:
-      "Inspect fonts, typography, colors, and CSS styles instantly with Which Font? — the modern Chrome extension for developers and designers.",
+      "Inspect fonts, typography, colors, and CSS styles instantly with Which Font? — a browser extension for Chrome and Firefox, built for developers and designers.",
     url: "https://whichfont.dev",
     siteName: "Which Font?",
     locale: "en_US",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Which Font? — Identify Fonts Instantly on Any Website",
     description:
-      "Inspect fonts, typography, colors, and CSS styles instantly with Which Font? — the modern Chrome extension for developers and designers.",
+      "Inspect fonts, typography, colors, and CSS styles instantly with Which Font? — a browser extension for Chrome and Firefox, built for developers and designers.",
   },
 };
 

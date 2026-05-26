@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { PrimaryButton } from "@/components/ui/PrimaryButton";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { goToInstall, navLinks } from "@/content/landing";
-import { cn } from "@/lib/cn";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { StoreBadgeLinks } from '@/components/ui/StoreBadgeLinks';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { navLinks } from '@/content/landing';
+import { cn } from '@/lib/cn';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,17 +15,17 @@ export function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
         scrolled
-          ? "border-b border-border-subtle bg-background/80 backdrop-blur-xl"
-          : "bg-transparent",
+          ? 'border-b border-border-subtle bg-background/80 backdrop-blur-xl'
+          : 'bg-transparent',
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
@@ -54,7 +54,7 @@ export function Header() {
 
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
-          <PrimaryButton onClick={goToInstall}>Add to Chrome</PrimaryButton>
+          <StoreBadgeLinks variant="light" size="sm" />
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -63,7 +63,7 @@ export function Header() {
             type="button"
             className="rounded-lg p-2 text-muted hover:bg-hover hover:text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
           </button>
@@ -83,9 +83,11 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <PrimaryButton onClick={goToInstall} className="mt-2 w-full">
-              Add to Chrome
-            </PrimaryButton>
+            <StoreBadgeLinks
+              variant="light"
+              size="sm"
+              className="mt-4 justify-center"
+            />
           </nav>
         </div>
       )}

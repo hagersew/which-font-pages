@@ -1,11 +1,9 @@
 "use client";
 
-import { PrimaryButton } from "@/components/ui/PrimaryButton";
-import { goToInstall } from "@/content/landing";
+import { StoreBadgeLinks } from "@/components/ui/StoreBadgeLinks";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { easeOut } from "@/lib/motion";
 import { motion } from "framer-motion";
-import { FiChrome } from "react-icons/fi";
 
 export function FinalCTASection() {
   const reduced = useReducedMotion();
@@ -29,13 +27,10 @@ export function FinalCTASection() {
               Install &ldquo;Which Font?&rdquo; and instantly discover typography
               details across the web.
             </p>
-            <PrimaryButton
-              onClick={goToInstall}
-              className="bg-white px-8 py-3.5 text-base text-brand-700 shadow-xl hover:bg-white/90 hover:text-brand-600"
-            >
-              <FiChrome size={20} />
-              Add to Chrome
-            </PrimaryButton>
+            <StoreBadgeLinks
+              variant="light"
+              className="justify-center"
+            />
           </div>
         </motion.div>
       </div>

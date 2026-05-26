@@ -81,7 +81,7 @@ export default async function OpenGraphImage() {
                 fontWeight: 500,
               }}
             >
-              Chrome Extension
+              Chrome & Firefox
             </span>
           </div>
         </div>
