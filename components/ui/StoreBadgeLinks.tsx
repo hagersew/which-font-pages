@@ -1,13 +1,13 @@
-import { storeLinks, type StoreLink } from "@/content/landing";
-import { cn } from "@/lib/cn";
-import Image from "next/image";
+import { storeLinks, type StoreLink } from '@/content/landing';
+import { cn } from '@/lib/cn';
+import Image from 'next/image';
 
-type Size = "sm" | "md";
-type Variant = "default" | "light";
+type Size = 'sm' | 'md';
+type Variant = 'default' | 'light';
 
 const sizeConfig: Record<
   Size,
-  Record<StoreLink["id"], { height: number; width: number }>
+  Record<StoreLink['id'], { height: number; width: number }>
 > = {
   sm: {
     chrome: { height: 36, width: 128 },
@@ -26,16 +26,16 @@ type StoreBadgeLinksProps = {
 };
 
 export function StoreBadgeLinks({
-  size = "md",
-  variant = "default",
+  size = 'md',
+  variant = 'default',
   className,
 }: StoreBadgeLinksProps) {
   return (
-    <div className={cn("flex flex-wrap items-center gap-3", className)}>
+    <div className={cn('flex flex-wrap items-center gap-3', className)}>
       {storeLinks.map((store) => {
         const dimensions = sizeConfig[size][store.id];
         const src =
-          variant === "light" && store.badgeSrcLight
+          variant === 'light' && store.badgeSrcLight
             ? store.badgeSrcLight
             : store.badgeSrc;
 
