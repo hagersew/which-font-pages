@@ -39,6 +39,8 @@ export const storeLinks: StoreLink[] = [
   },
 ];
 
+export const SITE_URL = "https://whichfont.hagersew.com";
+
 export const GITHUB_URL = "#";
 export const HAGERSEW_URL = "https://hagersew.com";
 export const PRIVACY_URL = "/privacy-policy/";
@@ -49,6 +51,12 @@ export const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Showcase", href: "#showcase" },
 ];
+
+/** Header/footer text links to extension listings. */
+export const installNavLinks = storeLinks.map((store) => ({
+  label: store.label,
+  href: store.href,
+}));
 
 export type Feature = {
   title: string;

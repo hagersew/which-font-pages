@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/content/landing";
 import { ogImageAlt, ogImagePath, ogImageSize } from "@/lib/og-image";
 import { ThemeInitScript } from "@/providers/ThemeInitScript";
 import { ThemeProvider } from "@/providers/ThemeProvider";
@@ -20,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://whichfont.dev"),
+  metadataBase: new URL(SITE_URL),
   title: "Which Font? — Identify Fonts Instantly on Any Website",
   description:
     "Inspect fonts, typography, colors, and CSS styles instantly with Which Font? — a browser extension for Chrome and Firefox, built for developers and designers.",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Which Font? — Identify Fonts Instantly on Any Website",
     description:
       "Inspect fonts, typography, colors, and CSS styles instantly with Which Font? — a browser extension for Chrome and Firefox, built for developers and designers.",
-    url: "https://whichfont.dev",
+    url: SITE_URL,
     siteName: "Which Font?",
     locale: "en_US",
     type: "website",

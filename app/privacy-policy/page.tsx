@@ -1,6 +1,7 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { PageBackground } from "@/components/layout/PageBackground";
+import { StoreBadgeLinks } from "@/components/ui/StoreBadgeLinks";
 import { CONTACT_EMAIL } from "@/content/landing";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -43,6 +44,13 @@ export default function PrivacyPolicyPage() {
                 We respect user privacy and are committed to keeping your
                 browsing experience secure.
               </p>
+            </div>
+
+            <div className="flex flex-col gap-6 border-t border-border-subtle pt-6">
+              <p className="text-sm font-medium text-foreground">
+                Get the extension
+              </p>
+              <StoreBadgeLinks variant="light" size="sm" />
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

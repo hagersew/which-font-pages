@@ -1,3 +1,7 @@
+import { SITE_URL } from "@/content/landing";
+
+const siteHost = new URL(SITE_URL).hostname;
+
 type OgImageContentProps = {
   logoSrc: string;
 };
@@ -139,7 +143,7 @@ export function OgImageContent({ logoSrc }: OgImageContentProps) {
             }}
           />
           <span style={{ fontSize: 18, color: "#c7d2fe", fontWeight: 600 }}>
-            whichfont.dev
+            {siteHost}
           </span>
         </div>
       </div>

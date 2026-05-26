@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Which Font?
 
-## Getting Started
+Static site for [Which Font?](https://whichfont.hagersew.com), a browser extension that identifies fonts, typography, colors, and CSS on any webpage. Built with Next.js and deployed as a static export.
 
-First, run the development server:
+**Live site:** [https://whichfont.hagersew.com](https://whichfont.hagersew.com)
+
+**Install:**
+
+- [Chrome Web Store](https://chromewebstore.google.com/detail/which-font/bkjnfjfgcpmiifbmlmcfljigdbmkhppl)
+- [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/whichfont/)
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) 16 (App Router, static export)
+- React 19
+- [Tailwind CSS](https://tailwindcss.com) 4
+- [Framer Motion](https://www.framer.com/motion/)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start the development server |
+| `npm run build` | Generate OG image, then build static site into `out/` |
+| `npm run start` | Serve the production build (after `build`) |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+`prebuild` runs `scripts/generate-og-image.tsx`, which writes `public/og.png` from the shared OG layout in `lib/og-image-content.tsx`. Metadata in `app/layout.tsx` references `/og.png` for Open Graph and Twitter cards.
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/                 # Routes (home, privacy policy)
+components/
+  demo/              # Interactive product demos
+  layout/            # Header, footer, page chrome
+  sections/          # Landing page sections
+  ui/                # Shared UI primitives
+content/
+  landing.ts         # Copy, store links, feature lists
+lib/                 # OG image config, utilities
+public/              # Static assets (logo, badges, chrome-store assets)
+scripts/
+  generate-og-image.tsx
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Editing content
 
-## Deploy on Vercel
+Most landing copy, store URLs, and feature lists live in [`content/landing.ts`](content/landing.ts). Section components under `components/sections/` compose the page; animated demos live under `components/demo/`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Build & deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The site is configured for static export (`output: "export"` in `next.config.ts`). `npm run build` outputs HTML and assets to `out/`.
+
+On push to `main` or `master`, [`.github/workflows/main.yml`](.github/workflows/main.yml) builds the site and deploys `out/` via FTP. Required repository secrets: `FTP_USERNAME`, `FTP_PASSWORD`.
+
+## Chrome Web Store assets
+
+Extension listing images under `public/chrome-store/` are documented in [`public/chrome-store/README.md`](public/chrome-store/README.md).

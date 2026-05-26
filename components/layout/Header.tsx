@@ -2,7 +2,7 @@
 
 import { StoreBadgeLinks } from '@/components/ui/StoreBadgeLinks';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import { navLinks } from '@/content/landing';
+import { installNavLinks, navLinks } from '@/content/landing';
 import { cn } from '@/lib/cn';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -50,6 +50,17 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          {installNavLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -77,6 +88,18 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
+                className="py-2 text-sm text-muted hover:text-foreground"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            {installNavLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="py-2 text-sm text-muted hover:text-foreground"
                 onClick={() => setMobileOpen(false)}
               >
