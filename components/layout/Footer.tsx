@@ -14,7 +14,6 @@ const footerLinks = [
   ...storeLinks.map((store) => ({ label: store.label, href: store.href })),
   { label: 'GitHub', href: GITHUB_URL },
   { label: 'Privacy', href: PRIVACY_URL },
-  { label: 'Contact', href: `mailto:${CONTACT_EMAIL}` },
 ];
 
 export function Footer() {
@@ -35,6 +34,15 @@ export function Footer() {
             </Link>
             <p className="max-w-xs text-sm text-muted">
               Inspect fonts and typography instantly on any website.
+            </p>
+            <p className="text-sm text-muted">
+              Questions or feedback? Say hello at{" "}
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="font-medium text-brand-600 underline-offset-2 hover:underline"
+              >
+                {CONTACT_EMAIL}
+              </a>
             </p>
             <StoreBadgeLinks variant="light" size="sm" />
             <a
